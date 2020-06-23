@@ -1,0 +1,33 @@
+{
+  "name": "readingnotes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosedamasco/readingnotes.git"
+  },
+  "author": "Roseanne Damasco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rosedamasco/readingnotes/issues"
+  },
+  "homepage": "https://github.com/rosedamasco/readingnotes#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
