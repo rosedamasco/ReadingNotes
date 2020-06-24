@@ -17,16 +17,16 @@ app.get('/getshelves', grController.getShelves);
 app.get('/getshelf/:name', grController.getShelf);
 app.post('/book', grController.getBook);
 
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+// app.get('/*', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 // statically serve everything in the build folder on the route '/build'
-if (process.env.NODE_ENV === 'production') {
-  app.use('/build', express.static(path.join(__dirname, '../build')));
-  // serve index.html on the route '/'
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  });
-}
+// if (process.env.NODE_ENV === 'production') {
+app.use('/build', express.static(path.join(__dirname, '../build')));
+// serve index.html on the route '/'
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
+// }
 
 app.use((req, res) => res.status(404).send('Page not found'));
 

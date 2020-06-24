@@ -48,12 +48,11 @@ class App extends Component {
   }
 
   handleClickBook(book) {
-    console.log('im in here');
     this.setState({ book });
   }
 
   render() {
-    if (this.redirectShelf) {
+    if (this.redirectShelf && !this.redirectBook) {
       this.redirectShelf = false;
       return <Shelf name={this.state.shelf} handleClickBook={this.handleClickBook} />;
     }
