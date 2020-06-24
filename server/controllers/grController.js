@@ -14,7 +14,7 @@ const grController = {};
 
 grController.requestToken = (req, res) => {
   if (req.cookies.userid !== undefined) {
-    return res.redirect('/shelves');
+    return res.redirect('/getshelves');
   }
   gr.requestToken(({ oauthToken, oauthTokenSecret, url }) => {
     userToken = { token: oauthToken, tokenSecret: oauthTokenSecret };
@@ -48,7 +48,7 @@ grController.processCallback = (req, res) => {
   });
 };
 
-grController.getShelves = (req, res) => {
+grController.getShelves = (req, res, next) => {
   if (req.cookies.userid === undefined) {
     return res.redirect('/');
   }
@@ -66,6 +66,7 @@ grController.getShelves = (req, res) => {
           shelves.push({ name: shelf.name[0], bookCount: parseInt(shelf.book_count[0]._) })
         );
         res.json({ shelves });
+        // next();
       });
     });
 };
@@ -101,6 +102,7 @@ grController.getShelf = (req, res, next) => {
 
 grController.getBook = (req, res, next) => {
   const { book } = req.body;
+  res.send('You in server book');
 };
 
 module.exports = grController;

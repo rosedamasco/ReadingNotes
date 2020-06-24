@@ -13,15 +13,17 @@ app.use(cookieParser());
 app.get('/goodreads', grController.requestToken);
 app.get('/callback', grController.processCallback);
 
-app.get('/shelves', grController.getShelves);
+app.get('/getshelves', grController.getShelves);
 app.get('/shelf/:name', grController.getShelf);
 app.post('/book', grController.getBook);
+
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 // statically serve everything in the build folder on the route '/build'
 if (process.env.NODE_ENV === 'production') {
   app.use('/build', express.static(path.join(__dirname, '../build')));
   // serve index.html on the route '/'
-  app.get('/', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
 }

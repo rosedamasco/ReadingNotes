@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-function App() {
+const Shelves = () => {
   return (
     <div>
-      <h1>Reading Notes</h1>
-      <form method="GET" action="/goodreads">
-        <input type="submit" value="Login with GoodReads" />
-      </form>
-
-      <form method="GET" action="/shelves">
-        <input type="submit" value="Get Shelves From GoodReads" />
-      </form>
-
+      <h1>Book Shelves</h1>
       <form method="GET" action="/shelf/read">
         <input type="submit" value="Get Books on Read Shelf" />
       </form>
@@ -25,6 +17,6 @@ function App() {
       </form>
     </div>
   );
-}
+};
 
-export default App;
+export default Shelves;
