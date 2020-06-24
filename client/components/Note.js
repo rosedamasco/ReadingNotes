@@ -1,5 +1,5 @@
 import React from 'react';
-
+// Future usage: Note taking page is solo
 const Note = () => {
   return (
     <div>
