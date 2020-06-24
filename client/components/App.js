@@ -12,7 +12,6 @@ import Note from './Note';
 const App = () => {
   return (
     <div>
-      <h1>Reading Nook</h1>
       <Switch>
         <Route component={Shelves} path="/shelves" />
         <Route component={Shelf} path="/shelf" />

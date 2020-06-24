@@ -7,7 +7,7 @@ const Login = () => {
       <form method="GET" action="/goodreads">
         <input type="submit" value="Login with GoodReads" />
       </form>
-      <form method="GET" action="/getshelves">
+      <form method="GET" action="/shelves">
         <input type="submit" value="Get Shelves From GoodReads" />
       </form>
     </div>

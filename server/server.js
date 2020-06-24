@@ -17,7 +17,7 @@ app.get('/getshelves', grController.getShelves);
 app.get('/shelf/:name', grController.getShelf);
 app.post('/book', grController.getBook);
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+app.get('/*', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 // statically serve everything in the build folder on the route '/build'
 if (process.env.NODE_ENV === 'production') {

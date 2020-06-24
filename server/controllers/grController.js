@@ -101,6 +101,9 @@ grController.getShelf = (req, res, next) => {
 };
 
 grController.getBook = (req, res, next) => {
+  if (req.cookies.userid === undefined) {
+    return res.redirect('/');
+  }
   const { book } = req.body;
   res.send('You in server book');
 };
