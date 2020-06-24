@@ -14,7 +14,7 @@ app.get('/goodreads', grController.requestToken);
 app.get('/callback', grController.processCallback);
 
 app.get('/getshelves', grController.getShelves);
-app.get('/shelf/:name', grController.getShelf);
+app.get('/getshelf/:name', grController.getShelf);
 app.post('/book', grController.getBook);
 
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));

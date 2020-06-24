@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShelfDetail from './ShelfDetail';
 
-const Shelves = () => {
+const Shelves = (props) => {
   const [bookshelves, setBookshelves] = useState([]);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const Shelves = () => {
               img="https://i.ibb.co/Xbqx60N/book.png"
               name={shelf.name}
               bookCount={shelf.bookCount}
+              handleClick={props.handleClickShelf}
             />
           );
         });
@@ -27,6 +28,7 @@ const Shelves = () => {
     <div>
       <h1>Bookshelves</h1>
       {bookshelves}
+
       {/* <h1>Book Shelves</h1>
         <form method="GET" action="/shelf/read">
           <input type="submit" value="Get Books on Read Shelf" />

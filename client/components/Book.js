@@ -1,9 +1,17 @@
 import React from 'react';
 
-const Book = () => {
+const Book = (props) => {
   return (
     <div>
-      <h1>Book</h1>
+      <div>
+        <img src={props.img} alt="Book Cover" />
+        <h1>{props.title}</h1>
+      </div>
+      <div>
+        <input type="number" />
+        <textarea />
+        <button>Save</button>
+      </div>
     </div>
   );
 };
