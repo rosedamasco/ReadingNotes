@@ -19,14 +19,14 @@
   },
   "homepage": "https://github.com/rosedamasco/readingnotes#readme",
   "dependencies": {
-    "@zalando/oauth2-client-js": "0.0.18",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "goodreads": "^0.1.0",
     "goodreads-api-node": "0.0.11",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "superagent": "^5.2.2"
+    "superagent": "^5.2.2",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",

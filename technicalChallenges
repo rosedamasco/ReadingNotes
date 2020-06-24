@@ -1,0 +1,7 @@
+Technical Difficulties
+
+Goodreads API Docs are not very good
+-They're limited in details
+-There are not many forums with helpful responses
+-Request return XML, rather than JSON
+-Testing the Oauth is made more difficult that I don't have control over revoking those oauths and removing my app from the user's is also not doable, currently. I ended up making a few bogus goodreads accounts to test my oauth.

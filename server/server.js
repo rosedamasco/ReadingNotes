@@ -1,31 +1,21 @@
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const goodreads = require('goodreads');
+const grController = require('./controllers/grController');
 
-const gr = new goodreads.client({
-  key: 'xZJUf8eT5TiIdX2nzR1IA',
-  secret: '74b6ftYwOszmywzIJJB06IoD1AIFvdGSKpXthBh8o',
-});
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 app.use(cookieParser());
 
-app.get('/goodreads', (req, res) => {
-  console.log('inside /goodreads');
-  gr.requestToken((object) => {
-    console.log(object);
-    return res.redirect(object.url);
-  });
-});
+// OAuth
+app.get('/goodreads', grController.requestToken);
+app.get('/callback', grController.processCallback);
 
-app.get('/callback', (req, res) => {
-  console.log('we in token');
-  console.log('oauth_token: ', req.query.oauth_token);
-  console.log('authorize: ', req.query.authorize);
-});
+app.get('/shelves', grController.getShelves);
+app.get('/shelf/:name', grController.getShelf);
+app.post('/book', grController.getBook);
 
 // statically serve everything in the build folder on the route '/build'
 if (process.env.NODE_ENV === 'production') {

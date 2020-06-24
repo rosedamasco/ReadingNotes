@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 
-class App extends Component {
-  constructor() {
-    super();
-  }
+function App() {
+  return (
+    <div>
+      <h1>Reading Notes</h1>
+      <form method="GET" action="/goodreads">
+        <input type="submit" value="Login with GoodReads" />
+      </form>
 
-  render() {
-    return (
-      <div>
-        <h1>Reading Notes</h1>
-        <form method="GET" action="/goodreads">
-          <input type="submit" value="Github" />
-        </form>
-      </div>
-    );
-  }
+      <form method="GET" action="/shelves">
+        <input type="submit" value="Get Shelves From GoodReads" />
+      </form>
+
+      <form method="GET" action="/shelf/read">
+        <input type="submit" value="Get Books on Read Shelf" />
+      </form>
+
+      <form method="GET" action="/shelf/currently-reading">
+        <input type="submit" value="Get Books on Currently Reading Shelf" />
+      </form>
+
+      <form method="GET" action="/shelf/to-read">
+        <input type="submit" value="Get Books on To-Read Shelf" />
+      </form>
+    </div>
+  );
 }
 
 export default App;
