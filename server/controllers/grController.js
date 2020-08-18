@@ -3,8 +3,8 @@ const superagent = require('superagent');
 const { parseString } = require('xml2js');
 
 let userToken;
-const DEV_KEY = 'fpdfN1iUINlTvAgdOIKHA';
-const DEV_SECRET = '2JN2JTsREnPve2CGQKe2XPSHLs0Pw6vFKbjz8Sk';
+const DEV_KEY = '';
+const DEV_SECRET = '';
 const gr = new goodreads.client({
   key: DEV_KEY,
   secret: DEV_SECRET,
