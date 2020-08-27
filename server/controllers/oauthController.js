@@ -1,9 +1,8 @@
 const { OAuth } = require('oauth');
 const db = require('../models/BookNoteModel');
 
-const { API_KEY, API_SECRET } = process.env;
+const { API_KEY, API_SECRET, CALLBACK_URL } = process.env;
 const GR_URL = 'https://goodreads.com';
-const CALLBACK_URL = 'http://localhost:3434/oauth/callback';
 
 const oauthController = {};
 
@@ -116,7 +115,7 @@ oauthController.addUserToDB = (req, res, next) => {
         book_id VARCHAR,
         location INT,
         note VARCHAR,
-        timestamp VARCHAR,
+        date VARCHAR,
         FOREIGN KEY (book_id) REFERENCES books(id)
         );`;
       db.query(createUserTableQuery).then(() => next());
