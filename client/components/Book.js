@@ -24,7 +24,7 @@ const Book = () => {
         const tempNotes = [];
         notes.forEach((oldNote) => {
           tempNotes.push(
-            <NoteRow location={oldNote.location} note={oldNote.note} date={oldNote.timestamp} />
+            <NoteRow location={oldNote.location} note={oldNote.note} date={oldNote.date} />
           );
         });
         setBookNotes(tempNotes);
@@ -62,9 +62,7 @@ const Book = () => {
     // add input to view
     const today = new Date();
     const date = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
-    const time = `${today.getHours()}:${today.getMinutes()}`;
-    const timestamp = `${date} ${time}`;
-    const newNote = <NoteRow location={location} note={note} date={timestamp} />;
+    const newNote = <NoteRow location={location} note={note} date={date} />;
     setBookNotes([...bookNotes, newNote]);
 
     // post new note to db
@@ -73,7 +71,7 @@ const Book = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id, location, note, timestamp }),
+      body: JSON.stringify({ id, location, note, date }),
     });
   };
 

@@ -28,7 +28,7 @@ BookController.getNotes = (req, res, next) => {
   const { userid } = req.cookies;
   const { id } = req.params;
   const tableName = `user${userid}`;
-  const notesQuery = `SELECT location, note, timestamp FROM ${tableName}
+  const notesQuery = `SELECT location, note, date FROM ${tableName}
   WHERE book_id=$1;`;
   db.query(notesQuery, [id])
     .then((results) => {
@@ -46,11 +46,11 @@ BookController.getNotes = (req, res, next) => {
 
 BookController.addNote = (req, res, next) => {
   const { userid } = req.cookies;
-  const { id, location, note, timestamp } = req.body;
+  const { id, location, note, date } = req.body;
   const tableName = `user${userid}`;
-  const insertNoteQuery = `INSERT INTO ${tableName}(book_id, location, note, timestamp)
+  const insertNoteQuery = `INSERT INTO ${tableName}(book_id, location, note, date)
   VALUES($1, $2, $3, $4);`;
-  db.query(insertNoteQuery, [id, location, note, timestamp])
+  db.query(insertNoteQuery, [id, location, note, date])
     .then(() => res.status(200).end())
     .catch((err) =>
       next({
