@@ -6,10 +6,10 @@ Sign in with your GoodReads account and view all of your shelves. Choose a shelf
 
 # Views
 
-<center>
+<p align="center">
 <img width=200 src="./DOCUMENTS/images/Signin.jpg"/>
 <img width=200 src="./DOCUMENTS/images/Shelves.jpg"/>
 <img width=200 src="./DOCUMENTS/images/Shelf.jpg"/>
 <img width=200 src="./DOCUMENTS/images/Book.jpg"/>
 <img width=200 src="./DOCUMENTS/images/BookTyping.jpg"/>
-</center>
+</p>
