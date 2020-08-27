@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "nodemon server/server.js",
-    "build": "webpack",
-    "dev": "webpack-dev-server --open & nodemon server/server.js",
+    "build": "webpack --env.NODE_ENV=production",
+    "dev": "webpack-dev-server --open --env.NODE_ENV=development & nodemon server/server.js",
     "test": "jest"
   },
   "keywords": [],
