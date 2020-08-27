@@ -1,0 +1,151 @@
+html {
+  background-image: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: gainsboro;
+  min-width: 375px;
+  font-size: 0.75em;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/******** 
+ ******** 
+  HEADER: Logo and Navigation Bar
+ ******** 
+ ********/
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a868d;
+  padding: 0.5em 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 0 1em;
+}
+
+/******** 
+ ******** 
+  Container for all content below header
+ ******** 
+ ********/
+#below-header {
+  border-radius: 5px;
+  background-color: #bfbbb0;
+  margin: 5.5em auto auto auto;
+  padding: 5px 5px;
+  max-width: 375px;
+}
+
+#below-header > div {
+  text-align: center;
+}
+
+/******** 
+ ******** 
+  Container for each shelf in Shelves view and each book in Shelf view
+ ******** 
+ ********/
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.bookImg {
+  height: 85px;
+}
+
+/******** 
+ ******** 
+  Goodreads login logo
+ ******** 
+ ********/
+#goodreadsLogo {
+  height: 20px;
+}
+
+/******** 
+ ******** 
+  Container for book header Book view
+ ******** 
+ ********/
+#book-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+/******** 
+ ******** 
+  Container for notes header and each note on Book view
+ ******** 
+ ********/
+.bold {
+  font-weight: bold;
+}
+
+.note-row {
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr;
+  justify-items: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+  border: 1px solid #6a868d;
+}
+
+.wrap-note {
+  word-break: break-all;
+}
+
+/******** 
+ ******** 
+  Container for input fields on Book view
+ ******** 
+ ********/
+#input-row {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #6a868d;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#input-row > * {
+  width: 100%;
+  margin: 0 2px;
+}
+
+#loc-input {
+  width: 40px;
+}
+#input-row > button {
+  width: 100px;
+}
+
+.missing-input {
+  border: red 2px solid;
+}
