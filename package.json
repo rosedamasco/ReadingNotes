@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.22.0"
+  },
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack",
