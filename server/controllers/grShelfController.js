@@ -1,7 +1,7 @@
 const { OAUTH } = require('./oauthController');
 const db = require('../models/BookNoteModel');
 
-const { API_KEY, API_SECRET } = process.env;
+const { API_KEY } = process.env;
 const GR_URL = 'https://goodreads.com';
 
 const grShelfController = {};
