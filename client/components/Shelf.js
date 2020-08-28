@@ -25,15 +25,19 @@ const Shelf = () => {
 
   const prevPage = () => {
     if (shelfPage <= 1) return;
+    setBookRows([<h3>Loading...</h3>]);
     fetchBooks(shelfPage - 1);
     setShelfPage(shelfPage - 1);
+    window.scrollTo(0, 0);
     return;
   };
 
   const nextPage = () => {
     if (bookRows.length < 10) return;
+    setBookRows([<h3>Loading...</h3>]);
     fetchBooks(shelfPage + 1);
     setShelfPage(shelfPage + 1);
+    window.scrollTo(0, 0);
     return;
   };
 
