@@ -4,6 +4,9 @@ import Login from './Login';
 import Shelves from './Shelves';
 import Shelf from './Shelf';
 import Book from './Book';
+import About from './About';
+import Search from './Search';
+import Error from './Error';
 
 const App = () => {
   const [isSignedIn, setSignedIn] = useState(false);
@@ -59,6 +62,9 @@ const App = () => {
           <Route component={Shelves} path="/shelves" />
           <Route component={Shelf} path="/shelf" />
           <Route component={Book} path="/book" />
+          <Route component={Search} path="/search" />
+          <Route component={About} path="/about" />
+          <Route component={Error} path="/" />
         </Switch>
       </div>
     </div>
