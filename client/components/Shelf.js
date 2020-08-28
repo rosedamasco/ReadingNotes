@@ -8,8 +8,8 @@ const Shelf = () => {
 
   const tempBook = [];
 
-  const fetchBooks = () => {
-    fetch(`/gr/shelf/${shelfName}/${shelfPage}`)
+  const fetchBooks = (newShelfPage) => {
+    fetch(`/gr/shelf/${shelfName}/${newShelfPage}`)
       .then((response) => response.json())
       .then(({ shelfBooks }) => {
         shelfBooks.forEach((book) => {
@@ -21,25 +21,25 @@ const Shelf = () => {
       });
   };
 
-  useEffect(fetchBooks, []);
+  useEffect(() => fetchBooks(shelfPage), []);
 
   const prevPage = () => {
     if (shelfPage <= 1) return;
+    fetchBooks(shelfPage - 1);
     setShelfPage(shelfPage - 1);
-    return fetchBooks();
+    return;
   };
 
   const nextPage = () => {
     if (bookRows.length < 10) return;
+    fetchBooks(shelfPage + 1);
     setShelfPage(shelfPage + 1);
-    return fetchBooks();
+    return;
   };
 
   return (
     <div>
-      <h2>
-        Shelf: {shelfName} - {shelfPage}
-      </h2>
+      <h2>Shelf: {shelfName}</h2>
       {bookRows}
       <div>
         <span onClick={prevPage}>{'<< Prev Page'}</span>
