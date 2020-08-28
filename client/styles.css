@@ -22,6 +22,7 @@ a {
   top: 0;
   right: 0;
   width: 100%;
+  min-width: 375px;
   height: 4em;
   display: flex;
   flex-direction: column;
@@ -148,4 +149,16 @@ nav li {
 
 .missing-input {
   border: red 2px solid;
+}
+
+/******** 
+ ******** 
+  paragraphs (only in About) 
+ ******** 
+ ********/
+#about p,
+#about ul {
+  width: 80%;
+  margin: auto;
+  text-align: left;
 }
