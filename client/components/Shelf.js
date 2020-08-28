@@ -42,8 +42,8 @@ const Shelf = () => {
       <h2>Shelf: {shelfName}</h2>
       {bookRows}
       <div>
-        <span onClick={prevPage}>{'<< Prev Page'}</span>
-        <span onClick={nextPage}>{'NextPage >>'}</span>
+        <span onClick={prevPage}>{'<< Prev Page '}</span>
+        <span onClick={nextPage}>{' NextPage >>'}</span>
       </div>
     </div>
   );

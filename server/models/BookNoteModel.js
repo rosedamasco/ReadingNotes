@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 //   id VARCHAR PRIMARY KEY,
 //   title VARCHAR,
 //   imgurl VARCHAR
-//   )
+//   );
 
 const URI = process.env.PG_URI;
 
