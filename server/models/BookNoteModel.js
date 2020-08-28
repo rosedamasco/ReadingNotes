@@ -4,6 +4,7 @@ const { Pool } = require('pg');
 // CREATE TABLE books (
 //   id VARCHAR PRIMARY KEY,
 //   title VARCHAR,
+//   author VARCHAR,
 //   imgurl VARCHAR
 //   );
 

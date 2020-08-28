@@ -19,7 +19,9 @@ const Book = () => {
       .then(({ book, notes }) => {
         // add book header with image and title
         // and notes header (loc, note, date)
-        setHeaders([<BookNotesHeader imgURL={book.imgURL} title={book.title} />]);
+        setHeaders([
+          <BookNotesHeader imgURL={book.imgURL} title={book.title} author={book.author} />,
+        ]);
         // add notes
         const tempNotes = [];
         notes.forEach((oldNote) => {

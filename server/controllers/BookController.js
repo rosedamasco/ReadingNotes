@@ -4,7 +4,7 @@ const BookController = {};
 
 BookController.getBook = (req, res, next) => {
   const { id } = req.params;
-  const bookQuery = `SELECT title, imgURL FROM books 
+  const bookQuery = `SELECT title, author, imgURL FROM books 
   WHERE id=$1 
   LIMIT 1;`;
   db.query(bookQuery, [id])
@@ -12,6 +12,7 @@ BookController.getBook = (req, res, next) => {
       const book = results.rows[0];
       res.locals.book = {
         title: book.title,
+        author: book.author,
         imgURL: book.imgurl,
       };
       return next();

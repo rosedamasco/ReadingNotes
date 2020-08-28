@@ -31,13 +31,17 @@ grShelfController.getShelfBooks = (req, res, next) => {
 grShelfController.parseShelfBooks = (req, res, next) => {
   const { xmlObj } = res.locals;
   const shelfBooksObj = xmlObj.GoodreadsResponse.books[0].book;
+  console.log('shelfBooksObj', JSON.stringify(shelfBooksObj, null, 1));
   const parsedShelfBooks = [];
   shelfBooksObj.forEach((book) => {
+    console.log('getting book info');
     const bookInfo = {
       id: book.id[0]._,
       title: book.title[0],
+      author: book.authors[0].author[0].name[0],
       imgURL: book.image_url[0],
     };
+    console.log(bookInfo);
     parsedShelfBooks.push(bookInfo);
   });
   res.locals.shelfBooks = parsedShelfBooks;
@@ -49,11 +53,12 @@ grShelfController.addBooksToDB = (req, res, next) => {
   let bookColumnValues = '';
   shelfBooks.forEach((book, index) => {
     const simpleBookTitle = book.title.replace(/'/g, "''");
-    bookColumnValues += `('${book.id}', '${simpleBookTitle}', '${book.imgURL}')`;
+    const simpleAuthor = book.author.replace(/'/g, "''");
+    bookColumnValues += `('${book.id}', '${simpleBookTitle}', '${simpleAuthor}', '${book.imgURL}')`;
     if (index < shelfBooks.length - 1) bookColumnValues += ',';
   });
   console.log(bookColumnValues);
-  const bookInsertQuery = `INSERT INTO books(id, title, imgurl)
+  const bookInsertQuery = `INSERT INTO books(id, title, author, imgurl)
     VALUES ${bookColumnValues}
     ON CONFLICT (id)
     DO NOTHING;`;

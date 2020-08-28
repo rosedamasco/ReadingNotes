@@ -5,7 +5,10 @@ const NotesHeader = (props) => {
     <div>
       <div id="book-header">
         <img className="bookImg" src={props.imgURL} />
-        <h2>{props.title}</h2>
+        <div>
+          <h2>{props.title}</h2>
+          <p>{props.author}</p>
+        </div>
       </div>
       <div className="note-row bold">
         <div>Loc</div>
