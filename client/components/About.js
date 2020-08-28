@@ -26,7 +26,6 @@ const About = () => {
 
       <h2>Future features:</h2>
       <ul>
-        <li>View author name in book notes page</li>
         <li>Delete notes from a book</li>
         <li>Search for books on your bookshelf</li>
         <li>Search for authors on your bookshelf</li>
