@@ -9,11 +9,13 @@ const grShelfController = {};
 grShelfController.getShelfBooks = (req, res, next) => {
   const { userid, accessToken, accessSecret } = req.cookies;
   if (!userid || !accessToken || !accessSecret) return res.redirect('/');
-  const { name } = req.params;
+  const { name, page } = req.params;
   const useridParam = `id=${userid}`;
   const shelfParam = `shelf=${name}`;
   const keyParam = `key=${API_KEY}`;
-  const shelfURL = `${GR_URL}/review/list?${useridParam}&${shelfParam}&${keyParam}&format=xml`;
+  const pageParam = `page=${page}`;
+  const perPageParam = 'per_page=10';
+  const shelfURL = `${GR_URL}/review/list?${useridParam}&${shelfParam}&${keyParam}&${pageParam}&${perPageParam}&format=xml`;
   OAUTH.get(shelfURL, accessToken, accessSecret, (err, xmlResponse) => {
     if (err) {
       return next({
@@ -44,24 +46,25 @@ grShelfController.parseShelfBooks = (req, res, next) => {
 
 grShelfController.addBooksToDB = (req, res, next) => {
   const { shelfBooks } = res.locals;
-  const bookInsertQueries = [];
-  shelfBooks.forEach((book) => {
-    const bookInsertQuery = `INSERT INTO books(id, title, imgurl)
-    VALUES ('${book.id}', '${book.title}', '${book.imgURL}')
+  let bookColumnValues = '';
+  shelfBooks.forEach((book, index) => {
+    const simpleBookTitle = book.title.replace(/'/g, "''");
+    bookColumnValues += `('${book.id}', '${simpleBookTitle}', '${book.imgURL}')`;
+    if (index < shelfBooks.length - 1) bookColumnValues += ',';
+  });
+  console.log(bookColumnValues);
+  const bookInsertQuery = `INSERT INTO books(id, title, imgurl)
+    VALUES ${bookColumnValues}
     ON CONFLICT (id)
     DO NOTHING;`;
-    // TO UPDATE ROW, REPALCE ABOVE LINE WITH: DO UPDATE SET title=EXCLUDED.title, imgurl=EXCLUDED.imgurl;`;
-    bookInsertQueries.push(bookInsertQuery);
-  });
-  // CURRENT LIMITATION: >3 BOOKS CAUSES 'TOO MANY CONNECTIONS' ERROR
-  Promise.all(bookInsertQueries.map((bookInsertQuery) => db.query(bookInsertQuery)))
+  db.query(bookInsertQuery)
     .then(() => next())
-    .catch((err) => {
-      return next({
+    .catch((err) =>
+      next({
         log: `Error in grShelfController.addBooksToDB: ${err}`,
         message: { err: `grShelfController.addBooksToDB: ${err}` },
-      });
-    });
+      })
+    );
 };
 
 module.exports = grShelfController;

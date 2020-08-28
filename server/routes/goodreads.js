@@ -15,7 +15,7 @@ router.get(
 );
 
 router.get(
-  '/shelf/:name',
+  '/shelf/:name/:page',
   grShelfController.getShelfBooks,
   xmlController.parseXML,
   grShelfController.parseShelfBooks,
