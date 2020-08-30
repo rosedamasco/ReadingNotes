@@ -92,7 +92,7 @@ const Book = () => {
             updateLocation(e);
           }}
         />
-        <input
+        <textarea
           className={noteClass}
           type="text"
           placeholder="Your thoughts..."
