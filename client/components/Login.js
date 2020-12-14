@@ -14,6 +14,14 @@ const Login = () => {
 
   return (
     <div>
+      <div>
+        <h2>READING NOTES IS UNDER CONSTRUCTION</h2>
+        <p>
+          **Goodreads API is being retired, and developer keys are no longer being issued. Steps are
+          being taken to refactor this application with this new information. Thank you for your
+          patience.**
+        </p>
+      </div>
       {!buttonClicked && (
         <button id="login" onClick={login}>
           <img
